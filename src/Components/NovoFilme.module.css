@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+form div {
+  margin-right: 1.5rem !important;
+}
+
+form div input {
+  width: 50%;
+}
+
+form button {
+  flex-grow: 1;
+}

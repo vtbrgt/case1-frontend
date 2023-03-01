@@ -16,7 +16,7 @@ const Api = () => {
           duracao,
           genero,
         }),
-      }).then((res) => console.log(res));
+      }).then((res) => console.log(res.status));
     },
     FILME_PUT(titulo, duracao, genero, id) {
       return fetch(`${url}/filme`, {
@@ -30,7 +30,7 @@ const Api = () => {
           genero,
           id,
         }),
-      }).then((res) => console.log(res));
+      }).then((res) => console.log(res.status));
     },
     FILME_DELETE(id) {
       return fetch(`${url}/filme`, {
@@ -41,7 +41,7 @@ const Api = () => {
         body: JSON.stringify({
           id,
         }),
-      }).then((res) => console.log(res));
+      }).then((res) => console.log(res.status));
     },
   };
 };

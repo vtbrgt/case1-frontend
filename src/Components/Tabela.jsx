@@ -18,7 +18,7 @@ const Tabela = ({itens}) => {
             itens.map((item) => (
               <tr key={item.id}>
                 <td>{item.titulo}</td>
-                <td>{item.duracao}</td>
+                <td>{item.duracao} min</td>
                 <td>{item.genero}</td>
               </tr>
             ))}

@@ -1,17 +1,13 @@
-form {
+.formFilme {
   display: flex;
   align-items: flex-end;
   margin-bottom: 1rem;
 }
 
-form div {
+.formFilme div {
   margin-right: 1.5rem !important;
 }
 
-form div input {
-  width: 50%;
-}
-
-form button {
+.formFilme button {
   flex-grow: 1;
 }

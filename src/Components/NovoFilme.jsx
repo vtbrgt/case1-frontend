@@ -29,7 +29,7 @@ const NovoFilme = ({reload, setReload}) => {
   }
 
   return (
-    <Form style={styles.form} onSubmit={handleSubmit}>
+    <Form className={styles.formFilme} onSubmit={handleSubmit}>
       <Form.Group controlId="titulo">
         <Form.Label>
           Título

@@ -1,9 +1,10 @@
 import React from 'react';
 import Api from './API/Api.jsx';
-import { Table, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import Tabela from './Components/Tabela.jsx';
 
 function App() {
-  const [filmes, setFilmes] = React.useState('');
+  const [filmes, setFilmes] = React.useState(null);
 
   React.useEffect(() => {
     async function getFilmes() {
@@ -18,26 +19,8 @@ function App() {
 
   return (
     <Container>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Duração</th>
-            <th>Gênero</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {filmes &&
-            filmes.map((filme) => (
-              <tr key={filme.id}>
-                <td>{filme.titulo}</td>
-                <td>{filme.duracao}</td>
-                <td>{filme.genero}</td>
-              </tr>
-            ))}
-        </tbody>
-      </Table>
+      <h1 align='center'>Lista de Filmes</h1>
+      <Tabela itens={filmes}/>
     </Container>
   );
 }

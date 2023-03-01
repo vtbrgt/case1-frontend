@@ -30,25 +30,25 @@ const NovoFilme = ({reload, setReload}) => {
 
   return (
     <Form style={styles.form} onSubmit={handleSubmit}>
-      <Form.Group controlId="titulo" value={titulo} onChange={({target}) => setTitulo(target.value)}>
+      <Form.Group controlId="titulo">
         <Form.Label>
           Título
         </Form.Label>
-        <Form.Control type="text" />
+        <Form.Control type="text" value={titulo} onChange={({target}) => setTitulo(target.value)} />
       </Form.Group>
 
-      <Form.Group controlId="duracao" value={duracao} onChange={({target}) => setDuracao(target.value)}>
+      <Form.Group controlId="duracao">
         <Form.Label>
           Duração
         </Form.Label>
-        <Form.Control type="number" />
+        <Form.Control type="number" value={duracao} onChange={({target}) => setDuracao(target.value)} />
       </Form.Group>
 
-      <Form.Group controlId="genero" value={genero} onChange={({target}) => setGenero(target.value)}>
+      <Form.Group controlId="genero">
         <Form.Label>
           Gênero
         </Form.Label>
-        <Form.Control type="text" />
+        <Form.Control type="text" value={genero} onChange={({target}) => setGenero(target.value)} />
       </Form.Group>
 
       <Button type='submit' variant='dark'>Adicionar</Button>

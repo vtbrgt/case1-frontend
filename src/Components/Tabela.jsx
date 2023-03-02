@@ -1,27 +1,26 @@
-import React from 'react'
-import { Table } from 'react-bootstrap';
-import { FaTrash, FaEdit } from "react-icons/fa";
-import styles from './Tabela.module.css'
+import React from 'react';
 import UpdateModal from './UpdateModal.jsx';
+import { Table } from 'react-bootstrap';
+import { FaTrash, FaEdit } from 'react-icons/fa';
+import styles from './Tabela.module.css';
 
-const Tabela = ({itens}) => {
-  const [isUpdateModalOpen, setIsUpdateModalOpen] = React.useState(false)
-  const [selectedContent, setSelectedContent] = React.useState('')
+const Tabela = ({ itens, reload, setReload }) => {
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = React.useState(false);
+  const [selectedContent, setSelectedContent] = React.useState('');
 
-  const handleShowUpdateModal = ({target}) => {
+  const handleShowUpdateModal = (item) => {
     setIsUpdateModalOpen(true);
-    //melhorar forma de pegar os itens
-    // setSelectedContent({
-    //   titulo: target.parentElement.parentElement.querySelector('.titulo').textContent,
-    //   duracao: target.parentElement.parentElement.querySelector('.duracao').textContent,
-    //   genero: target.parentElement.parentElement.querySelector('.genero').textContent
-    // })
-    console.log(target.parentElement);
-  }
+    setSelectedContent({
+      titulo: item.titulo,
+      duracao: item.duracao,
+      genero: item.genero,
+      id: item.id,
+    });
+  };
   const handleCloseUpdateModal = () => {
     setIsUpdateModalOpen(false);
-    setSelectedContent('')
-  }
+    setSelectedContent('');
+  };
 
   return (
     <>
@@ -40,21 +39,31 @@ const Tabela = ({itens}) => {
           {itens &&
             itens.map((item) => (
               <tr key={item.id}>
-                <td className='titulo'>{item.titulo}</td>
-                <td className='duracao'>{item.duracao} min</td>
-                <td className='genero'>{item.genero}</td>
-                {/* trocar svg por imagem? */}
-                <td align='center'><i onClick={(event) => handleShowUpdateModal(event)}><FaEdit/></i></td>
-                <td align='center'><FaTrash/></td>
+                <td className="titulo">{item.titulo}</td>
+                <td className="duracao">{item.duracao} min</td>
+                <td className="genero">{item.genero}</td>
+                <td align="center">
+                  <FaEdit onClick={() => handleShowUpdateModal(item)} />
+                </td>
+                <td align="center">
+                  <FaTrash />
+                </td>
               </tr>
             ))}
         </tbody>
       </Table>
       {selectedContent && (
-        <UpdateModal isModalOpen={isUpdateModalOpen} handleClose={handleCloseUpdateModal} selectedContent={selectedContent} />
+        <UpdateModal
+          isModalOpen={isUpdateModalOpen}
+          setModalOpen={setIsUpdateModalOpen}
+          handleClose={handleCloseUpdateModal}
+          selectedContent={selectedContent}
+          reload={reload}
+          setReload={setReload}
+        />
       )}
     </>
-  )
-}
+  );
+};
 
-export default Tabela
+export default Tabela;

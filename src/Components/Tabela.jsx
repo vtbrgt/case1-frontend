@@ -3,9 +3,11 @@ import UpdateModal from './UpdateModal.jsx';
 import { Table } from 'react-bootstrap';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import styles from './Tabela.module.css';
+import DeleteModal from './DeleteModal.jsx';
 
 const Tabela = ({ itens, reload, setReload }) => {
   const [isUpdateModalOpen, setIsUpdateModalOpen] = React.useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
   const [selectedContent, setSelectedContent] = React.useState('');
 
   const handleShowUpdateModal = (item) => {
@@ -17,10 +19,23 @@ const Tabela = ({ itens, reload, setReload }) => {
       id: item.id,
     });
   };
+
   const handleCloseUpdateModal = () => {
     setIsUpdateModalOpen(false);
     setSelectedContent('');
   };
+
+  const handleShowDeleteModal = (item) => {
+    setIsDeleteModalOpen(true)
+    setSelectedContent({
+      titulo: item.titulo,
+      id: item.id
+    })
+  } 
+  const handleCloseDeleteModal = () => {
+    setIsDeleteModalOpen(false)
+    setSelectedContent('')
+  } 
 
   return (
     <>
@@ -46,7 +61,7 @@ const Tabela = ({ itens, reload, setReload }) => {
                   <FaEdit onClick={() => handleShowUpdateModal(item)} />
                 </td>
                 <td align="center">
-                  <FaTrash />
+                  <FaTrash onClick={() => handleShowDeleteModal(item)} />
                 </td>
               </tr>
             ))}
@@ -62,6 +77,7 @@ const Tabela = ({ itens, reload, setReload }) => {
           setReload={setReload}
         />
       )}
+      {selectedContent && <DeleteModal isModalOpen={isDeleteModalOpen} setModalOpen={setIsDeleteModalOpen} handleClose={handleCloseDeleteModal} selectedContent={selectedContent} reload={reload} setReload={setReload} />}
     </>
   );
 };

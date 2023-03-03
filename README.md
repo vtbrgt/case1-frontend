@@ -8,7 +8,7 @@ Nesse projeto eu fui responsável por criar uma página Web com React e Bootstra
 
 # Hospedagem 🏡
 
-Você pode acessar o projeto partir deste [endereço](https://lista-filmes.onrender.com).
+Você pode acessar o projeto partir deste [endereço](https://case1-frontend.vercel.app).
 
 # Back-end 👾
 
@@ -20,7 +20,7 @@ O projeto em que construí o back-end está aqui: `https://github.com/vtbrgt/cas
 
 ```sh
 
-git clone https://github.com/vtbrgt/case1-backend
+git clone https://github.com/vtbrgt/case1-frontend
 
 ```
 
@@ -38,18 +38,15 @@ npm run dev
 
 ```
 
-## 👉 Após esses passos acesse:
-
-http://localhost:3000/filmes
-
-para abrir o projeto no navegador.
+## 👉 Após esses passos acesse o endereço que o vite disponibilizar para abrir o projeto no seu navegador
 
 # Tecnologias utilizadas 👨🏻‍💻
 
-- `Node.js`
-- `Express`
-- `SQLite`
-- `render.com`
+- `Vite`
+- `React.js`
+- `react-bootstrap`
+- `react-icons`
+- `react-toastify`
 
 # Autor
 

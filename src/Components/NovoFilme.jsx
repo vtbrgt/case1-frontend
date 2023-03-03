@@ -9,7 +9,7 @@ const NovoFilme = ({ reload, setReload }) => {
   const [duracao, setDuracao] = React.useState('');
   const [genero, setGenero] = React.useState('');
 
-  async function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // console.log('Enviar filme: ', titulo, Number(duracao), genero);
     if (titulo && duracao && genero) {
@@ -29,7 +29,7 @@ const NovoFilme = ({ reload, setReload }) => {
     } else {
       toast.warn('Complete todos os dados para cadastrar um filme');
     }
-  }
+  };
 
   return (
     <Form className={styles.formFilme} onSubmit={handleSubmit}>

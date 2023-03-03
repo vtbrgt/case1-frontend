@@ -1,5 +1,5 @@
 import React from 'react';
-import Api from './API/Api.jsx';
+import Api from './API/Api.js';
 import NovoFilme from './Components/NovoFilme.jsx';
 import Tabela from './Components/Tabela.jsx';
 import { Container } from 'react-bootstrap';
@@ -10,12 +10,12 @@ function App() {
   const [filmes, setFilmes] = React.useState(null);
   const [reload, setReload] = React.useState(false);
 
-  async function getFilmes() {
+  const getFilmes = async () => {
     await Api()
       .FILMES_GET()
       .then((res) => res.json())
       .then((data) => setFilmes(data));
-  }
+  };
 
   React.useEffect(() => {
     getFilmes();

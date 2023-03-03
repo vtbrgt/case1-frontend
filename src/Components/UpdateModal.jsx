@@ -15,7 +15,7 @@ const UpdateModal = ({
   const [duracao, setDuracao] = React.useState('');
   const [genero, setGenero] = React.useState('');
 
-  async function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (titulo && duracao && genero) {
       try {
@@ -40,7 +40,7 @@ const UpdateModal = ({
     } else {
       toast.warn('Complete todos os dados para atualizar um filme');
     }
-  }
+  };
 
   return (
     <div

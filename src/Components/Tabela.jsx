@@ -1,13 +1,13 @@
 import React from 'react';
 import UpdateModal from './UpdateModal.jsx';
+import DeleteModal from './DeleteModal.jsx';
 import { Table } from 'react-bootstrap';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import styles from './Tabela.module.css';
-import DeleteModal from './DeleteModal.jsx';
 
 const Tabela = ({ itens, reload, setReload }) => {
   const [isUpdateModalOpen, setIsUpdateModalOpen] = React.useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = React.useState(false);
   const [selectedContent, setSelectedContent] = React.useState('');
 
   const handleShowUpdateModal = (item) => {
@@ -26,16 +26,16 @@ const Tabela = ({ itens, reload, setReload }) => {
   };
 
   const handleShowDeleteModal = (item) => {
-    setIsDeleteModalOpen(true)
+    setIsDeleteModalOpen(true);
     setSelectedContent({
       titulo: item.titulo,
-      id: item.id
-    })
-  } 
+      id: item.id,
+    });
+  };
   const handleCloseDeleteModal = () => {
-    setIsDeleteModalOpen(false)
-    setSelectedContent('')
-  } 
+    setIsDeleteModalOpen(false);
+    setSelectedContent('');
+  };
 
   return (
     <>
@@ -77,7 +77,16 @@ const Tabela = ({ itens, reload, setReload }) => {
           setReload={setReload}
         />
       )}
-      {selectedContent && <DeleteModal isModalOpen={isDeleteModalOpen} setModalOpen={setIsDeleteModalOpen} handleClose={handleCloseDeleteModal} selectedContent={selectedContent} reload={reload} setReload={setReload} />}
+      {selectedContent && (
+        <DeleteModal
+          isModalOpen={isDeleteModalOpen}
+          setModalOpen={setIsDeleteModalOpen}
+          handleClose={handleCloseDeleteModal}
+          selectedContent={selectedContent}
+          reload={reload}
+          setReload={setReload}
+        />
+      )}
     </>
   );
 };

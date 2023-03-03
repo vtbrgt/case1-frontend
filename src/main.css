@@ -5,3 +5,7 @@ body {
   justify-content: center;
   height: 100%;
 }
+
+#root h1 {
+  margin-top: 4rem;
+}
